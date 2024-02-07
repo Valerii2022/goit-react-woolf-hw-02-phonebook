@@ -1,0 +1,32 @@
+.list {
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #ca1313;
+  background-color: #e8e8e8;
+  color: #ca1313;
+  outline: none;
+  transition: color 250ms linear, background-color 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #ca1313;
+  color: #e8e8e8;
+}
