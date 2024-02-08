@@ -12,14 +12,14 @@ export class App extends Component {
 
   addContact = (name, number) => {
     const user = { id: nanoid(3), name, number };
+    const isExist = this.state.contacts.some(
+      contact => contact.name.toLowerCase() === user.name.toLowerCase()
+    );
+    if (isExist) {
+      alert(`${user.name} is already in contacts.`);
+      return;
+    }
     this.setState(prev => {
-      const isExist = prev.contacts.some(
-        el => el.name.toLowerCase() === user.name.toLowerCase()
-      );
-      if (isExist) {
-        alert(`${user.name} is already in contacts.`);
-        return;
-      }
       return { contacts: [...prev.contacts, user] };
     });
   };
