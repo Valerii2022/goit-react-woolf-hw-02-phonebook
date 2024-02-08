@@ -26,8 +26,7 @@ export class App extends Component {
 
   deleteContact = id => {
     this.setState(prev => {
-      const currentContacts = prev.contacts.filter(el => el.id !== id);
-      return { contacts: [...currentContacts] };
+      return { contacts: [...prev.contacts.filter(el => el.id !== id)] };
     });
   };
 

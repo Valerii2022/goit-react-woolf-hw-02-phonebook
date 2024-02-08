@@ -7,18 +7,16 @@ export class ContactForm extends Component {
     number: '',
   };
 
+  handleSubmitForm = e => {
+    e.preventDefault();
+    this.props.handleSubmitForm(this.state.name, this.state.number);
+    this.setState({ name: '' });
+    this.setState({ number: '' });
+  };
+
   render() {
-    const { handleSubmitForm } = this.props;
     return (
-      <form
-        className={style.form}
-        onSubmit={e => {
-          e.preventDefault();
-          handleSubmitForm(this.state.name, this.state.number);
-          this.setState({ name: '' });
-          this.setState({ number: '' });
-        }}
-      >
+      <form className={style.form} onSubmit={this.handleSubmitForm}>
         <label className={style.label}>
           Name
           <input

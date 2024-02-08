@@ -1,28 +1,24 @@
-import { Component } from 'react';
 import style from './ContactList.module.css';
 
-export class ContactList extends Component {
-  render() {
-    const { contacts, handleDeleteContact } = this.props;
-    return (
-      <ul className={style.list}>
-        {contacts.map(el => {
-          return (
-            <li key={el.id} className={style.item}>
-              <span>
-                {el.name}: {el.number}
-              </span>
-              <button
-                className={style.btn}
-                id={el.id}
-                onClick={() => handleDeleteContact(el.id)}
-              >
-                delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-}
+export const ContactList = ({ contacts, handleDeleteContact }) => {
+  return (
+    <ul className={style.list}>
+      {contacts.map(contact => {
+        return (
+          <li key={contact.id} className={style.item}>
+            <span>
+              {contact.name}: {contact.number}
+            </span>
+            <button
+              className={style.btn}
+              id={contact.id}
+              onClick={() => handleDeleteContact(contact.id)}
+            >
+              delete
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
